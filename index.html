@@ -1,138 +1,430 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
 
-<title>Feiticeira.club – Apostas Online e com credibilidade</title>
+<meta name="viewport"
+     content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<meta name="description" content="Aposte online com Pix instantâneo, bônus exclusivos e plataforma segura. Feiticeira.club é rápido, confiável e com suporte 24h.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Feiticeira.club">
+  <title>Feiticeira.club – Apostas Online com Pix</title>
 
-<link rel="preconnect" href="https://app.feiticeira.club">
-<link rel="dns-prefetch" href="https://app.feiticeira.club">
+<meta name="description"
+     content="Feiticeira.club — plataforma de apostas online com acesso via Pix, ofertas e suporte.">
 
-<meta property="og:title" content="Feiticeira.club – Apostas Online com Pix">
-<meta property="og:description" content="Pix instantâneo, bônus exclusivos e apostas online seguras.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://feiticeira.club">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Feiticeira.club">
 
-<style>
-*{box-sizing:border-box}
-html,body{
-margin:0;
-height:100%;
-font-family:Arial,sans-serif;
-background:#000;
-color:#fff;
-}
+  <link rel="canonical" href="https://feiticeira.club/">
 
-header{
-padding:8px;
-text-align:center;
-font-size:5px;
-background:#000;
-}
+  <!-- Performance -->
 
-iframe{
-width:100%;
-height:calc(100% - 50px);
-border:0;
-display:none;
-}
+  <link rel="preconnect" href="https://app.feiticeira.club">
+  <link rel="dns-prefetch" href="//app.feiticeira.club">
 
-.popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.7);
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:1000;
-}
+  <!-- Open Graph -->
 
-.popup img{
-max-width:90%;
-height:auto;
-}
+<meta property="og:title"
+     content="Feiticeira.club – Apostas Online com Pix">
 
-.close-btn{
-position:absolute;
-top:10px;
-right:10px;
-width:40px;
-height:40px;
-border-radius:50%;
-background:#000;
-color:#fff;
-font-size:26px;
-text-align:center;
-line-height:40px;
-cursor:pointer;
-}
+<meta property="og:description"
+     content="Acesse a plataforma Feiticeira.club e confira as opções disponíveis.">
 
-#whatsapp-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-z-index:1001;
-}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://feiticeira.club/">
 
-#whatsapp-btn img{
-width:50px;
-height:50px;
-}
-</style>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      position: relative;
+    }
+
+    /* =========================================
+       CONTEÚDO PRINCIPAL
+    ========================================= */
+
+    header {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    #mainFrame {
+      position: fixed;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      border: 0;
+      display: block;
+
+      background: #000;
+    }
+
+    /* =========================================
+       POPUP DO BANNER
+    ========================================= */
+
+    .popup {
+      position: fixed;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 15px;
+
+      background: rgba(0, 0, 0, 0.78);
+
+      z-index: 9999;
+
+      opacity: 1;
+      visibility: visible;
+
+      transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+    }
+
+    .popup.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .popup-content {
+      position: relative;
+
+      width: min(92vw, 600px);
+      max-height: 92vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup img {
+      display: block;
+
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      max-height: 90vh;
+
+      object-fit: contain;
+
+      border-radius: 10px;
+
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    /* =========================================
+       BOTÃO X
+    ========================================= */
+
+    .close-btn {
+      position: absolute;
+
+      top: -15px;
+      right: -15px;
+
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 2px solid #fff;
+      border-radius: 50%;
+
+      background: #000;
+      color: #fff;
+
+      font-size: 27px;
+      font-weight: bold;
+
+      line-height: 1;
+
+      cursor: pointer;
+
+      z-index: 10001;
+
+      box-shadow: 0 3px 12px rgba(0,0,0,.5);
+
+      transition:
+        transform .2s ease,
+        background .2s ease;
+    }
+
+    .close-btn:hover {
+      transform: scale(1.08);
+      background: #222;
+    }
+
+    .close-btn:active {
+      transform: scale(.95);
+    }
+
+    /* =========================================
+       WHATSAPP
+    ========================================= */
+
+    #whatsapp-btn {
+      position: fixed;
+
+      right: max(18px, env(safe-area-inset-right));
+      bottom: max(18px, env(safe-area-inset-bottom));
+
+      z-index: 9000;
+    }
+
+    #whatsapp-btn a {
+      width: 54px;
+      height: 54px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: #25D366;
+
+      box-shadow:
+        0 4px 15px rgba(0,0,0,.35);
+
+      transition:
+        transform .2s ease;
+    }
+
+    #whatsapp-btn a:hover {
+      transform: scale(1.08);
+    }
+
+    #whatsapp-btn img {
+      width: 54px;
+      height: 54px;
+
+      display: block;
+    }
+
+    /* =========================================
+       CELULAR
+    ========================================= */
+
+    @media (max-width: 600px) {
+
+      .popup {
+        padding: 12px;
+      }
+
+      .popup-content {
+        width: 94vw;
+        max-height: 88vh;
+      }
+
+      .popup img {
+        max-height: 85vh;
+        border-radius: 8px;
+      }
+
+      .close-btn {
+        top: -12px;
+        right: -8px;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 25px;
+      }
+
+      #whatsapp-btn {
+        right: 15px;
+        bottom: 15px;
+      }
+
+      #whatsapp-btn a,
+      #whatsapp-btn img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    /* =========================================
+       TELAS MUITO PEQUENAS
+    ========================================= */
+
+    @media (max-height: 600px) {
+
+      .popup-content {
+        max-height: 84vh;
+      }
+
+      .popup img {
+        max-height: 82vh;
+      }
+
+      .close-btn {
+        top: -8px;
+      }
+    }
+
+    /* =========================================
+       ACESSIBILIDADE
+    ========================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .popup,
+      .close-btn,
+      #whatsapp-btn a {
+        transition: none;
+      }
+    }
+  </style>
+
 </head>
+
 <body>
 
-<header>
-<h1>Apostas Online com Pix – Feiticeira.club</h1>
-<p>Plataforma segura com bônus exclusivos e suporte 24h.</p>
-</header>
+  <!-- Conteúdo semântico para mecanismos de busca -->
 
-<div id="popup" class="popup">
-<span class="close-btn" id="closePopup">×</span>
-<img src="baner.WebP" alt="Oferta exclusiva Feiticeira.club" loading="lazy">
+  <header>
+    <h1>Feiticeira.club – Apostas Online com Pix</h1>
+    <p>
+      Plataforma de apostas online com acesso via Pix,
+      ofertas e suporte.
+    </p>
+  </header>
+
+  <!-- =========================================
+       PLATAFORMA
+  ========================================= -->
+
+  <iframe
+    id="mainFrame"
+    src="https://app.feiticeira.club/pr/2iCVbLKr"
+    title="Feiticeira.club"
+    loading="eager"
+    allow="clipboard-read; clipboard-write"
+    allowfullscreen
+    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-top-navigation-by-user-activation">
+  </iframe>
+
+  <!-- =========================================
+       POPUP
+  ========================================= -->
+
+  <div
+    id="popup"
+    class="popup"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Oferta Feiticeira.club">
+
+```
+<div class="popup-content">
+
+  <button
+    type="button"
+    class="close-btn"
+    id="closePopup"
+    aria-label="Fechar banner">
+    ×
+  </button>
+
+  <img
+    src="baner.WebP"
+    alt="Oferta Feiticeira.club"
+    fetchpriority="high">
 </div>
+```
 
-<iframe 
-id="mainFrame"
-loading="lazy"
-src="https://app.feiticeira.club/pr/2iCVbLKr"
-sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-top-navigation-by-user-activation"
-allow="clipboard-read; clipboard-write"
-allowfullscreen
-title="Plataforma Feiticeira.club">
-</iframe>
+  </div>
 
-<div id="whatsapp-btn">
-<a href="https://wa.me/5583993753199?text=ol%C3%A1,%20vim%20do%20site%20e%20quero%20ajuda" target="_blank" rel="noopener">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  <!-- =========================================
+       WHATSAPP
+  ========================================= -->
+
+  <div id="whatsapp-btn">
+
+```
+<a
+  href="https://wa.me/5583993523067?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20ajuda"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Falar com atendimento pelo WhatsApp">
+
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp">
+
 </a>
-</div>
+```
 
-<script defer>
-document.addEventListener("DOMContentLoaded", () => {
-  const popup = document.getElementById("popup");
-  const frame = document.getElementById("mainFrame");
-  const closeBtn = document.getElementById("closePopup");
+  </div>
 
-  frame.style.display = "block";
+  <script>
+    (() => {
 
-  closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
+      const popup = document.getElementById("popup");
+      const closeBtn = document.getElementById("closePopup");
 
-  setTimeout(() => {
-    popup.style.display = "flex";
-  }, 1500);
-});
-</script>
+      function closePopup() {
+        popup.classList.add("hidden");
+
+        // Libera o iframe completamente para interação
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 250);
+      }
+
+      closeBtn.addEventListener("click", closePopup);
+
+      // Fecha ao clicar fora do banner
+      popup.addEventListener("click", (event) => {
+
+        if (event.target === popup) {
+          closePopup();
+        }
+
+      });
+
+      // Fecha com a tecla ESC
+      document.addEventListener("keydown", (event) => {
+
+        if (event.key === "Escape") {
+          closePopup();
+        }
+
+      });
+
+    })();
+  </script>
 
 </body>
 </html>
