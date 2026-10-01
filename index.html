@@ -1,429 +1,944 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-     content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Feiticeira Vip - Portal Oficial de Apostas Online e Jogo do Bicho</title>
 
-  <title>Feiticeira.club – Apostas Online com Pix</title>
+  <meta
+    name="description"
+    content="Feiticeira VIP - Oficial Plataforma de apostas online, com palpites, jogos, informações e entretenimento. Acesso rápido, prático e seguro."
+  >
 
-<meta name="description"
-     content="Feiticeira.club — plataforma de apostas online com acesso via Pix, ofertas e suporte.">
-
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Feiticeira.club">
-
-  <link rel="canonical" href="https://feiticeira.club/">
-
-  <!-- Performance -->
-
-  <link rel="preconnect" href="https://app.feiticeira.club">
-  <link rel="dns-prefetch" href="//app.feiticeira.club">
-
-  <!-- Open Graph -->
-
-<meta property="og:title"
-     content="Feiticeira.club – Apostas Online com Pix">
-
-<meta property="og:description"
-     content="Acesse a plataforma Feiticeira.club e confira as opções disponíveis.">
-
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://feiticeira.club/">
+  <link rel="icon" type="image/png" href="feiticeira.png">
 
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     html,
     body {
+      margin: 0;
+      padding: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: #000;
-      font-family: Arial, Helvetica, sans-serif;
     }
 
-    body {
-      position: relative;
-    }
+    /* =========================
+       SITE PRINCIPAL
+       ========================= */
 
-    /* =========================================
-       CONTEÚDO PRINCIPAL
-    ========================================= */
-
-    header {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-    }
-
-    #mainFrame {
-      position: fixed;
-      inset: 0;
-
+    .site-frame {
       width: 100%;
-      height: 100%;
-
+      height: 100vh;
       border: 0;
       display: block;
-
-      background: #000;
     }
 
-    /* =========================================
-       POPUP DO BANNER
-    ========================================= */
+    /* =========================
+       BANNER DE ENTRADA
+       ========================= */
 
-    .popup {
+    .banner-overlay {
       position: fixed;
       inset: 0;
-
-      width: 100%;
-      height: 100%;
+      z-index: 10000;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      padding: 15px;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 20px;
+    }
 
-      background: rgba(0, 0, 0, 0.78);
+    .banner {
+      position: relative;
+
+      width: min(900px, 95vw);
+      max-height: 85vh;
+
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    .banner-image {
+      display: block;
+
+      width: 100%;
+      height: auto;
+      max-height: 85vh;
+
+      object-fit: contain;
+    }
+
+    .banner-link {
+      position: absolute;
+      inset: 0;
+
+      z-index: 10001;
+      cursor: pointer;
+    }
+
+    .banner-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+
+      width: 34px;
+      height: 34px;
+
+      border: 0;
+      border-radius: 50%;
+
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+
+      font-size: 24px;
+      line-height: 34px;
+
+      cursor: pointer;
+      z-index: 10002;
+    }
+
+    .banner-close:hover {
+      background: #000;
+    }
+
+    /* =========================
+       GRUPO DE PALPITES
+       ========================= */
+
+    .whatsapp-box {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+
+      width: 280px;
+      min-height: 120px;
+
+      padding: 22px 20px 20px;
+
+      background: #fff;
+      border-radius: 14px;
+
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
 
       z-index: 9999;
 
-      opacity: 1;
-      visibility: visible;
+      cursor: pointer;
+
+      font-family: Arial, sans-serif;
 
       transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
-    .popup.hidden {
-      opacity: 0;
-      visibility: hidden;
+    .whatsapp-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.30);
+    }
+
+    .close-button {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+
+      width: 26px;
+      height: 26px;
+
+      border: none;
+      background: transparent;
+
+      color: #777;
+      font-size: 20px;
+      line-height: 26px;
+
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .close-button:hover {
+      color: #000;
+    }
+
+    .whatsapp-title {
+      margin: 8px 0;
+
+      color: #111;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .whatsapp-text {
+      margin: 0;
+
+      color: #555;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+
+      margin-top: 12px;
+      padding: 9px 16px;
+
+      background: #25D366;
+      color: #fff;
+
+      border-radius: 8px;
+
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       BOTÃO PUXADA
+       ========================= */
+
+    .puxada-box {
+      position: fixed;
+
+      right: 20px;
+      bottom: 20px;
+
+      width: 300px;
+
+      background: #fff;
+
+      border-radius: 14px;
+
+      box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.30);
+
+      z-index: 9998;
+
+      font-family: Arial, sans-serif;
+
+      overflow: hidden;
+    }
+
+    /* Cabeçalho */
+
+    .puxada-header {
+      position: relative;
+
+      padding: 15px 45px 15px 18px;
+
+      background: #111;
+      color: #fff;
+
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    /* X */
+
+    .puxada-close {
+      position: absolute;
+
+      top: 7px;
+      right: 8px;
+
+      width: 30px;
+      height: 30px;
+
+      border: 0;
+      background: transparent;
+
+      color: #fff;
+
+      font-size: 23px;
+
+      cursor: pointer;
+    }
+
+    .puxada-close:hover {
+      color: #ccc;
+    }
+
+    /* Área de pesquisa */
+
+    .puxada-content {
+      padding: 15px;
+    }
+
+    .puxada-search {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .puxada-search input {
+      width: 100%;
+
+      height: 44px;
+
+      padding: 0 45px 0 13px;
+
+      border: 1px solid #ddd;
+      border-radius: 9px;
+
+      outline: none;
+
+      font-size: 15px;
+    }
+
+    .puxada-search input:focus {
+      border-color: #111;
+    }
+
+    .search-icon {
+      position: absolute;
+
+      right: 13px;
+
+      color: #555;
+
+      font-size: 20px;
+
       pointer-events: none;
     }
 
-    .popup-content {
-      position: relative;
+    /* Resultados */
 
-      width: min(92vw, 600px);
-      max-height: 92vh;
+    .puxada-resultados {
+      margin-top: 15px;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      max-height: 250px;
+
+      overflow-y: auto;
     }
 
-    .popup img {
-      display: block;
+    .resultado-titulo {
+      margin-bottom: 10px;
 
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      max-height: 90vh;
+      color: #222;
 
-      object-fit: contain;
-
-      border-radius: 10px;
-
-      box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    /* =========================================
-       BOTÃO X
-    ========================================= */
+    .animal-result {
+      display: inline-block;
 
-    .close-btn {
-      position: absolute;
+      margin: 4px 3px;
 
-      top: -15px;
-      right: -15px;
+      padding: 8px 11px;
 
-      width: 42px;
-      height: 42px;
+      background: #f1f1f1;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: #222;
 
-      border: 2px solid #fff;
-      border-radius: 50%;
+      border-radius: 8px;
 
-      background: #000;
-      color: #fff;
-
-      font-size: 27px;
-      font-weight: bold;
-
-      line-height: 1;
+      font-size: 13px;
+      font-weight: 600;
 
       cursor: pointer;
 
-      z-index: 10001;
-
-      box-shadow: 0 3px 12px rgba(0,0,0,.5);
-
       transition:
-        transform .2s ease,
-        background .2s ease;
+        background 0.2s ease,
+        color 0.2s ease;
     }
 
-    .close-btn:hover {
-      transform: scale(1.08);
-      background: #222;
+    .animal-result:hover {
+      background: #111;
+      color: #fff;
     }
 
-    .close-btn:active {
-      transform: scale(.95);
+    .sem-resultado {
+      color: #777;
+
+      font-size: 13px;
+      line-height: 1.5;
     }
 
-    /* =========================================
-       WHATSAPP
-    ========================================= */
-
-    #whatsapp-btn {
-      position: fixed;
-
-      right: max(18px, env(safe-area-inset-right));
-      bottom: max(18px, env(safe-area-inset-bottom));
-
-      z-index: 9000;
-    }
-
-    #whatsapp-btn a {
-      width: 54px;
-      height: 54px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: #25D366;
-
-      box-shadow:
-        0 4px 15px rgba(0,0,0,.35);
-
-      transition:
-        transform .2s ease;
-    }
-
-    #whatsapp-btn a:hover {
-      transform: scale(1.08);
-    }
-
-    #whatsapp-btn img {
-      width: 54px;
-      height: 54px;
-
-      display: block;
-    }
-
-    /* =========================================
-       CELULAR
-    ========================================= */
+    /* =========================
+       RESPONSIVO
+       ========================= */
 
     @media (max-width: 600px) {
 
-      .popup {
-        padding: 12px;
+      .banner-overlay {
+        padding: 10px;
       }
 
-      .popup-content {
-        width: 94vw;
-        max-height: 88vh;
+      .banner {
+        width: 96vw;
+        max-height: 75vh;
       }
 
-      .popup img {
-        max-height: 85vh;
-        border-radius: 8px;
+      .banner-image {
+        max-height: 75vh;
       }
 
-      .close-btn {
-        top: -12px;
-        right: -8px;
+      .whatsapp-box {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
 
-        width: 40px;
-        height: 40px;
-
-        font-size: 25px;
+        width: auto;
       }
 
-      #whatsapp-btn {
-        right: 15px;
-        bottom: 15px;
-      }
+      .puxada-box {
+        right: 12px;
+        bottom: 12px;
 
-      #whatsapp-btn a,
-      #whatsapp-btn img {
-        width: 50px;
-        height: 50px;
-      }
-    }
-
-    /* =========================================
-       TELAS MUITO PEQUENAS
-    ========================================= */
-
-    @media (max-height: 600px) {
-
-      .popup-content {
-        max-height: 84vh;
-      }
-
-      .popup img {
-        max-height: 82vh;
-      }
-
-      .close-btn {
-        top: -8px;
-      }
-    }
-
-    /* =========================================
-       ACESSIBILIDADE
-    ========================================= */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      .popup,
-      .close-btn,
-      #whatsapp-btn a {
-        transition: none;
+        width: 290px;
+        max-width: calc(100vw - 24px);
       }
     }
   </style>
-
 </head>
 
 <body>
 
-  <!-- Conteúdo semântico para mecanismos de busca -->
-
-  <header>
-    <h1>Feiticeira.club – Apostas Online com Pix</h1>
-    <p>
-      Plataforma de apostas online com acesso via Pix,
-      ofertas e suporte.
-    </p>
-  </header>
-
-  <!-- =========================================
-       PLATAFORMA
-  ========================================= -->
+  <!-- =================================
+       SITE PRINCIPAL
+       ================================= -->
 
   <iframe
-    id="mainFrame"
+    class="site-frame"
     src="https://app.feiticeira.club/pr/2iCVbLKr"
-    title="Feiticeira.club"
-    loading="eager"
-    allow="clipboard-read; clipboard-write"
-    allowfullscreen
-    sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-top-navigation-by-user-activation">
+    allowfullscreen>
   </iframe>
 
-  <!-- =========================================
-       POPUP
-  ========================================= -->
+
+  <!-- =================================
+       BANNER DE ENTRADA
+       ================================= -->
 
   <div
-    id="popup"
-    class="popup"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Oferta Feiticeira.club">
+    class="banner-overlay"
+    id="bannerOverlay">
 
-```
-<div class="popup-content">
+    <div class="banner">
 
-  <button
-    type="button"
-    class="close-btn"
-    id="closePopup"
-    aria-label="Fechar banner">
-    ×
-  </button>
+      <img
+        class="banner-image"
+        src="aguianovo.png"
+        alt="Banca Águia">
 
-  <img
-    src="baner.WebP"
-    alt="Oferta Feiticeira.club"
-    fetchpriority="high">
-</div>
-```
+      <a
+        class="banner-link"
+        href="https://bancaaguiaoficial.com.br/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Acessar Banca Águia">
+      </a>
+
+      <button
+        class="banner-close"
+        id="bannerClose"
+        aria-label="Fechar banner">
+        ×
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =================================
+       GRUPO DE PALPITES
+       ================================= -->
+
+  <div
+    class="whatsapp-box"
+    id="whatsappBox"
+    onclick="abrirWhatsApp(event)">
+
+    <button
+      class="close-button"
+      onclick="fecharInformativo(event)"
+      aria-label="Fechar">
+      ×
+    </button>
+
+    <div class="whatsapp-title">
+      Grupo de palpites
+    </div>
+
+    <p class="whatsapp-text">
+      Entre no nosso grupo do WhatsApp e acompanhe os palpites.
+    </p>
+
+    <div class="whatsapp-button">
+      Entrar no grupo
+    </div>
 
   </div>
 
-  <!-- =========================================
-       WHATSAPP
-  ========================================= -->
 
-  <div id="whatsapp-btn">
+  <!-- =================================
+       PUXADA
+       ================================= -->
 
-```
-<a
-  href="https://wa.me/5583993523067?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20ajuda"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Falar com atendimento pelo WhatsApp">
+  <div
+    class="puxada-box"
+    id="puxadaBox">
 
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-    alt="WhatsApp">
+    <div class="puxada-header">
 
-</a>
-```
+      PUXADA
+
+      <button
+        class="puxada-close"
+        onclick="fecharPuxada(event)"
+        aria-label="Fechar Puxada">
+        ×
+      </button>
+
+    </div>
+
+    <div class="puxada-content">
+
+      <div class="puxada-search">
+
+        <input
+          type="text"
+          id="animalInput"
+          placeholder="Digite o nome de um animal..."
+          autocomplete="off">
+
+        <span class="search-icon">
+          🔍
+        </span>
+
+      </div>
+
+      <div
+        class="puxada-resultados"
+        id="resultados">
+
+        <div class="sem-resultado">
+          Digite um animal para consultar suas opções.
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
+
 
   <script>
-    (() => {
 
-      const popup = document.getElementById("popup");
-      const closeBtn = document.getElementById("closePopup");
+    /* =========================
+       BANNER
+       ========================= */
 
-      function closePopup() {
-        popup.classList.add("hidden");
+    document
+      .getElementById("bannerClose")
+      .addEventListener("click", function(event) {
 
-        // Libera o iframe completamente para interação
-        setTimeout(() => {
-          popup.style.display = "none";
-        }, 250);
+        event.preventDefault();
+        event.stopPropagation();
+
+        document
+          .getElementById("bannerOverlay")
+          .style.display = "none";
+
+      });
+
+
+    /* =========================
+       WHATSAPP
+       ========================= */
+
+    const whatsappLink =
+      "https://chat.whatsapp.com/CaY60otbPRkEJL0n5Hhnvm";
+
+
+    function abrirWhatsApp(event) {
+
+      if (event.target.closest(".close-button")) {
+        return;
       }
 
-      closeBtn.addEventListener("click", closePopup);
+      window.location.href = whatsappLink;
+    }
 
-      // Fecha ao clicar fora do banner
-      popup.addEventListener("click", (event) => {
 
-        if (event.target === popup) {
-          closePopup();
+    function fecharInformativo(event) {
+
+      event.stopPropagation();
+
+      document
+        .getElementById("whatsappBox")
+        .style.display = "none";
+    }
+
+
+    /* =========================
+       PUXADA
+       ========================= */
+
+    const animais = {
+
+      "avestuz": [
+        "Vaca",
+        "Águia",
+        "Galo",
+        "Pavão",
+        "Peru"
+      ],
+
+      "águia": [
+        "Coelho",
+        "Avestruz",
+        "Galo",
+        "Pavão",
+        "Peru"
+      ],
+
+      "burro": [
+        "Cavalo",
+        "Elefante",
+        "Touro",
+        "Veado",
+        "Coelho",
+        "Cobra"
+      ],
+
+      "borboleta": [
+        "Cabra",
+        "Elefante",
+        "Gato",
+        "Leão",
+        "Cachorro",
+        "Galo"
+      ],
+
+      "cachorro": [
+        "Galo",
+        "Gato",
+        "Camelo",
+        "Macaco",
+        "Porco",
+        "Pavão"
+      ],
+
+      "cabra": [
+        "Carneiro",
+        "Macaco",
+        "Elefante",
+        "Touro",
+        "Tigre",
+        "Urso"
+      ],
+
+      "carneiro": [
+        "Cabra",
+        "Coelho",
+        "Vaca"
+      ],
+
+      "camelo": [
+        "Cachorro",
+        "Elefante",
+        "Urso"
+      ],
+
+      "cobra": [
+        "Jacaré",
+        "Porco",
+        "Burro",
+        "Gato"
+      ],
+
+      "coelho": [
+        "Carneiro",
+        "Águia",
+        "Burro"
+      ],
+
+      "cavalo": [
+        "Burro",
+        "Cabra",
+        "Touro"
+      ],
+
+      "elefante": [
+        "Cabra",
+        "Urso",
+        "Tigre",
+        "Leão",
+        "Burro"
+      ],
+
+      "galo": [
+        "Cachorro",
+        "Avestruz",
+        "Águia",
+        "Pavão",
+        "Peru"
+      ],
+
+      "gato": [
+        "Cachorro",
+        "Leão",
+        "Tigre",
+        "Cobra"
+      ],
+
+      "jacaré": [
+        "Cobra",
+        "Porco",
+        "Borboleta",
+        "Macaco"
+      ],
+
+      "leão": [
+        "Elefante",
+        "Gato",
+        "Tigre",
+        "Urso"
+      ],
+
+      "macaco": [
+        "Cachorro",
+        "Cabra",
+        "Peru",
+        "Jacaré"
+      ],
+
+      "porco": [
+        "Cobra",
+        "Peru",
+        "Jacaré",
+        "Cachorro"
+      ],
+
+      "pavão": [
+        "Avestruz",
+        "Águia",
+        "Galo",
+        "Peru"
+      ],
+
+      "peru": [
+        "Avestruz",
+        "Águia",
+        "Galo",
+        "Pavão",
+        "Veado"
+      ],
+
+      "touro": [
+        "Vaca",
+        "Burro",
+        "Cabra"
+      ],
+
+      "tigre": [
+        "Gato",
+        "Leão",
+        "Cabra"
+      ],
+
+      "urso": [
+        "Leão",
+        "Elefante",
+        "Camelo",
+        "Cabra"
+      ],
+
+      "veado": [
+        "Peru",
+        "Burro",
+        "Cabra"
+      ],
+
+      "vaca": [
+        "Touro",
+        "Avestruz",
+        "Carneiro"
+      ]
+
+    };
+
+
+    /* =========================
+       NORMALIZAR TEXTO
+       ========================= */
+
+    function normalizarTexto(texto) {
+
+      return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+
+    }
+
+
+    /* =========================
+       PESQUISA
+       ========================= */
+
+    const animalInput =
+      document.getElementById("animalInput");
+
+    const resultados =
+      document.getElementById("resultados");
+
+
+    animalInput.addEventListener("input", function() {
+
+      const busca =
+        normalizarTexto(this.value);
+
+      resultados.innerHTML = "";
+
+
+      if (!busca) {
+
+        resultados.innerHTML = `
+          <div class="sem-resultado">
+            Digite um animal para consultar suas opções.
+          </div>
+        `;
+
+        return;
+      }
+
+
+      /*
+       * Procura o animal digitado.
+       */
+
+      const animalEncontrado =
+        Object.keys(animais).find(animal => {
+
+          return normalizarTexto(animal) === busca;
+
+        });
+
+
+      if (!animalEncontrado) {
+
+        /*
+         * Permite também pesquisar parcialmente.
+         */
+
+        const sugestoes =
+          Object.keys(animais).filter(animal => {
+
+            return normalizarTexto(animal)
+              .includes(busca);
+
+          });
+
+
+        if (sugestoes.length > 0) {
+
+          resultados.innerHTML = `
+            <div class="resultado-titulo">
+              Você quis dizer:
+            </div>
+          `;
+
+          sugestoes.forEach(animal => {
+
+            const item =
+              document.createElement("span");
+
+            item.className =
+              "animal-result";
+
+            item.textContent =
+              animal.charAt(0).toUpperCase()
+              + animal.slice(1);
+
+            item.onclick = function() {
+
+              animalInput.value =
+                animal;
+
+              mostrarResultados(animal);
+
+            };
+
+            resultados.appendChild(item);
+
+          });
+
+          return;
         }
+
+
+        resultados.innerHTML = `
+          <div class="sem-resultado">
+            Animal não encontrado.
+          </div>
+        `;
+
+        return;
+      }
+
+
+      mostrarResultados(animalEncontrado);
+
+    });
+
+
+    /* =========================
+       MOSTRAR RESULTADOS
+       ========================= */
+
+    function mostrarResultados(animal) {
+
+      resultados.innerHTML = `
+        <div class="resultado-titulo">
+          Opções para ${animal.charAt(0).toUpperCase() + animal.slice(1)}:
+        </div>
+      `;
+
+
+      animais[animal].forEach(opcao => {
+
+        const item =
+          document.createElement("span");
+
+        item.className =
+          "animal-result";
+
+        item.textContent =
+          opcao;
+
+        resultados.appendChild(item);
 
       });
 
-      // Fecha com a tecla ESC
-      document.addEventListener("keydown", (event) => {
+    }
 
-        if (event.key === "Escape") {
-          closePopup();
-        }
 
-      });
+    /* =========================
+       FECHAR PUXADA
+       ========================= */
 
-    })();
+    function fecharPuxada(event) {
+
+      event.stopPropagation();
+
+      document
+        .getElementById("puxadaBox")
+        .style.display = "none";
+
+    }
+
   </script>
 
 </body>
