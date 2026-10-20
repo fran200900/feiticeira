@@ -1,34 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Feiticeira Vip - Portal Oficial de Apostas Online e Jogo do Bicho</title>
+  <title>Feiticeira VIP - Plataforma Online e Jogos</title>
 
-  <meta
-    name="description"
-    content="Feiticeira VIP - Oficial Plataforma de apostas online, com palpites, jogos, informações e entretenimento. Acesso rápido, prático e seguro."
-  >
+  <meta name="description" content="Acesse a Feiticeira VIP e confira informações sobre a plataforma online, jogos, acesso e condições de utilização.">
 
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://feiticeiraclub.com/">
   <link rel="icon" type="image/png" href="feiticeira.png">
-  <link rel="canonical" href="https://feiticeiraclub.com/" />
 
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       width: 100%;
-      height: 100%;
-      overflow: hidden;
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-family: Arial, sans-serif;
+      color: #222;
+      background: #fff;
     }
-
-    /* SITE PRINCIPAL */
 
     .site-frame {
       width: 100%;
@@ -38,50 +38,67 @@
       display: block;
     }
 
-    /* BANNER DE ENTRADA */
+    /* CONTEÚDO SEO */
+    .seo-content {
+      width: min(1000px, 92%);
+      margin: 0 auto;
+      padding: 36px 0 48px;
+      line-height: 1.7;
+    }
 
+    .seo-content h1 {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+      color: #4d0050;
+    }
+
+    .seo-content h2 {
+      margin: 28px 0 10px;
+      font-size: clamp(21px, 3vw, 28px);
+      color: #4d0050;
+    }
+
+    .seo-content p {
+      margin: 0 0 14px;
+      font-size: 16px;
+    }
+
+    /* BANNER */
     .banner-overlay {
       position: fixed;
       inset: 0;
       z-index: 10000;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       background: rgba(0, 0, 0, 0.65);
       padding: 20px;
     }
 
     .banner {
       position: relative;
-
       width: min(900px, 95vw);
       max-height: 85vh;
       max-height: 85dvh;
-
       background: #fff;
       border-radius: 12px;
       overflow: hidden;
-
       box-shadow: 0 10px 50px rgba(0, 0, 0, 0.45);
     }
 
     .banner-image {
       display: block;
-
       width: 100%;
       height: auto;
       max-height: 85vh;
       max-height: 85dvh;
-
       object-fit: contain;
     }
 
     .banner-link {
       position: absolute;
       inset: 0;
-
       z-index: 10001;
       cursor: pointer;
     }
@@ -90,85 +107,49 @@
       position: absolute;
       top: 8px;
       right: 8px;
-
       width: 34px;
       height: 34px;
-
       border: 0;
       border-radius: 50%;
-
       background: rgba(0, 0, 0, 0.75);
       color: #fff;
-
       font-size: 24px;
       line-height: 34px;
-
       cursor: pointer;
       z-index: 10002;
     }
 
-    .banner-close:hover {
-      background: #000;
-    }
-
-    /* GRUPO DE PALPITES */
-
+    /* GRUPO WHATSAPP */
     .whatsapp-box {
       position: fixed;
       left: 20px;
       bottom: 20px;
-
       width: 280px;
       min-height: 120px;
-
       padding: 22px 20px 20px;
-
       background: #fff;
       border-radius: 14px;
-
       box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-
       z-index: 9999;
-
       cursor: pointer;
       font-family: Arial, sans-serif;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-    }
-
-    .whatsapp-box:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.30);
     }
 
     .close-button {
       position: absolute;
       top: 6px;
       right: 8px;
-
       width: 26px;
       height: 26px;
-
       border: none;
       background: transparent;
-
       color: #777;
       font-size: 20px;
-      line-height: 26px;
-
       cursor: pointer;
-      z-index: 2;
-    }
-
-    .close-button:hover {
-      color: #000;
     }
 
     .whatsapp-title {
       margin: 8px 0;
-
       color: #111;
       font-size: 20px;
       font-weight: 700;
@@ -176,7 +157,6 @@
 
     .whatsapp-text {
       margin: 0;
-
       color: #555;
       font-size: 14px;
       line-height: 1.4;
@@ -184,72 +164,49 @@
 
     .whatsapp-button {
       display: inline-block;
-
       margin-top: 12px;
       padding: 9px 16px;
-
       background: #25D366;
       color: #fff;
-
       border-radius: 8px;
-
       font-size: 14px;
       font-weight: 700;
     }
 
     /* FERRAMENTA DE PUXADA */
-
     .puxada-box {
       position: fixed;
-
       right: 20px;
       bottom: 20px;
-
       width: 300px;
-
       background: #fff;
       border-radius: 14px;
-
       box-shadow: 0 5px 25px rgba(0, 0, 0, 0.30);
-
       z-index: 9998;
       font-family: Arial, sans-serif;
-
       overflow: hidden;
     }
 
     .puxada-header {
       position: relative;
-
       padding: 15px 45px 15px 18px;
-
       background: #111;
       color: #fff;
-
       font-size: 18px;
       font-weight: 700;
     }
 
     .puxada-close {
       position: absolute;
-
       top: 7px;
       right: 8px;
-
       width: 30px;
       height: 30px;
-
       border: 0;
       background: transparent;
-
       color: #fff;
       font-size: 23px;
-
       cursor: pointer;
-    }
-
-    .puxada-close:hover {
-      color: #ccc;
     }
 
     .puxada-content {
@@ -258,7 +215,6 @@
 
     .puxada-search {
       position: relative;
-
       display: flex;
       align-items: center;
     }
@@ -266,40 +222,29 @@
     .puxada-search input {
       width: 100%;
       height: 44px;
-
       padding: 0 45px 0 13px;
-
       border: 1px solid #ddd;
       border-radius: 9px;
-
       outline: none;
       font-size: 15px;
-    }
-
-    .puxada-search input:focus {
-      border-color: #111;
     }
 
     .search-icon {
       position: absolute;
       right: 13px;
-
       color: #555;
       font-size: 20px;
-
       pointer-events: none;
     }
 
     .puxada-resultados {
       margin-top: 15px;
-
       max-height: 250px;
       overflow-y: auto;
     }
 
     .resultado-titulo {
       margin-bottom: 10px;
-
       color: #222;
       font-size: 14px;
       font-weight: 700;
@@ -307,23 +252,14 @@
 
     .animal-result {
       display: inline-block;
-
       margin: 4px 3px;
       padding: 8px 11px;
-
       background: #f1f1f1;
       color: #222;
-
       border-radius: 8px;
-
       font-size: 13px;
       font-weight: 600;
-
       cursor: pointer;
-
-      transition:
-        background 0.2s ease,
-        color 0.2s ease;
     }
 
     .animal-result:hover {
@@ -336,8 +272,6 @@
       font-size: 13px;
       line-height: 1.5;
     }
-
-    /* AJUSTES PARA CELULAR */
 
     @media (max-width: 600px) {
       .banner-overlay {
@@ -359,17 +293,14 @@
         left: 12px;
         right: 12px;
         bottom: 12px;
-
         width: auto;
       }
 
       .puxada-box {
         right: 12px;
         bottom: 12px;
-
         width: 290px;
         max-width: calc(100vw - 24px);
-
         max-height: 45vh;
         max-height: 45dvh;
         overflow-y: auto;
@@ -384,28 +315,64 @@
 
 <body>
 
-  <!-- SITE PRINCIPAL COM PERMISSÕES DE ÁREA DE TRANSFERÊNCIA -->
-
+  <!-- PLATAFORMA -->
   <iframe
     class="site-frame"
     src="https://app.feiticeira.club/pr/2iCVbLKr"
-    title="Plataforma Feiticeira"
+    title="Plataforma Feiticeira VIP"
     allow="clipboard-read; clipboard-write; fullscreen"
     allowfullscreen>
   </iframe>
 
+  <!-- TEXTO VISÍVEL PARA VISITANTES E MECANISMOS DE BUSCA -->
+  <main class="seo-content">
+
+    <h1>Feiticeira VIP: plataforma online e informações sobre jogos</h1>
+
+    <p>
+      Esta página reúne informações sobre a Feiticeira VIP e oferece acesso à
+      plataforma online. Consulte os recursos disponíveis diretamente na página
+      e confira as regras, condições de uso e informações apresentadas pelo
+      operador antes de utilizar qualquer serviço.
+    </p>
+
+    <h2>Como acessar a Feiticeira VIP</h2>
+
+    <p>
+      Para acessar a plataforma Feiticeira VIP, utilize o conteúdo carregado
+      nesta página e leia atentamente as orientações exibidas. Confira se está
+      no endereço correto, consulte os termos e verifique as condições de
+      cadastro e utilização antes de prosseguir.
+    </p>
+
+    <h2>Feiticeira VIP: dúvidas frequentes</h2>
+
+    <p>
+      Quem procura por Feiticeira VIP, plataforma Feiticeira ou acesso online
+      deve confirmar as informações diretamente no site e nos canais oficiais
+      disponibilizados pelo operador. Recursos, disponibilidade e regras podem
+      mudar; por isso, confira os detalhes atualizados antes de usar a plataforma.
+    </p>
+
+    <h2>Jogue com responsabilidade</h2>
+
+    <p>
+      Serviços de apostas e jogos podem envolver riscos financeiros. A utilização
+      deve respeitar a legislação aplicável, os termos do operador e os limites
+      pessoais. Não utilize dinheiro destinado a despesas essenciais e não
+      considere jogos ou apostas como fonte garantida de renda.
+    </p>
+
+  </main>
+
   <!-- BANNER DE ENTRADA -->
-
-  <div
-    class="banner-overlay"
-    id="bannerOverlay">
-
+  <div class="banner-overlay" id="bannerOverlay">
     <div class="banner">
 
       <img
         class="banner-image"
         src="aguianovo.png"
-        alt="Banca Águia">
+        alt="Banner promocional da Banca Águia">
 
       <a
         class="banner-link"
@@ -427,7 +394,6 @@
   </div>
 
   <!-- GRUPO DE PALPITES -->
-
   <div
     class="whatsapp-box"
     id="whatsappBox"
@@ -441,27 +407,19 @@
       ×
     </button>
 
-    <div class="whatsapp-title">
-      Grupo de palpites
-    </div>
+    <div class="whatsapp-title">Grupo de palpites</div>
 
     <p class="whatsapp-text">
       Entre no nosso grupo do WhatsApp e acompanhe os palpites.
     </p>
 
-    <div class="whatsapp-button">
-      Entrar no grupo
-    </div>
+    <div class="whatsapp-button">Entrar no grupo</div>
   </div>
 
   <!-- FERRAMENTA DE PUXADA -->
-
-  <div
-    class="puxada-box"
-    id="puxadaBox">
+  <div class="puxada-box" id="puxadaBox">
 
     <div class="puxada-header">
-
       PUXADA
 
       <button
@@ -471,259 +429,82 @@
         aria-label="Fechar Puxada">
         ×
       </button>
-
     </div>
 
     <div class="puxada-content">
 
       <div class="puxada-search">
-
         <input
           type="text"
           id="animalInput"
           placeholder="Digite o nome de um animal..."
           autocomplete="off">
 
-        <span class="search-icon">
-          🔍
-        </span>
-
+        <span class="search-icon">🔍</span>
       </div>
 
-      <div
-        class="puxada-resultados"
-        id="resultados">
-
+      <div class="puxada-resultados" id="resultados">
         <div class="sem-resultado">
           Digite um animal para consultar suas opções.
         </div>
-
       </div>
+
     </div>
   </div>
 
   <script>
     /* FECHAR BANNER */
-
     document
       .getElementById("bannerClose")
       .addEventListener("click", function(event) {
-
         event.preventDefault();
         event.stopPropagation();
 
-        document
-          .getElementById("bannerOverlay")
-          .style.display = "none";
+        document.getElementById("bannerOverlay").style.display = "none";
       });
 
     /* WHATSAPP */
-
     const whatsappLink =
       "https://chat.whatsapp.com/CaY60otbPRkEJL0n5Hhnvm";
 
     function abrirWhatsApp(event) {
-      if (event.target.closest(".close-button")) {
-        return;
-      }
-
+      if (event.target.closest(".close-button")) return;
       window.location.href = whatsappLink;
     }
 
     function fecharInformativo(event) {
       event.stopPropagation();
-
-      document
-        .getElementById("whatsappBox")
-        .style.display = "none";
+      document.getElementById("whatsappBox").style.display = "none";
     }
 
-    /* DADOS DA FERRAMENTA DE PUXADA */
-
+    /* DADOS DA FERRAMENTA */
     const animais = {
-
-      "avestuz": [
-        "Vaca",
-        "Águia",
-        "Galo",
-        "Pavão",
-        "Peru"
-      ],
-
-      "águia": [
-        "Coelho",
-        "Avestruz",
-        "Galo",
-        "Pavão",
-        "Peru"
-      ],
-
-      "burro": [
-        "Cavalo",
-        "Elefante",
-        "Touro",
-        "Veado",
-        "Coelho",
-        "Cobra"
-      ],
-
-      "borboleta": [
-        "Cabra",
-        "Elefante",
-        "Gato",
-        "Leão",
-        "Cachorro",
-        "Galo"
-      ],
-
-      "cachorro": [
-        "Galo",
-        "Gato",
-        "Camelo",
-        "Macaco",
-        "Porco",
-        "Pavão"
-      ],
-
-      "cabra": [
-        "Carneiro",
-        "Macaco",
-        "Elefante",
-        "Touro",
-        "Tigre",
-        "Urso"
-      ],
-
-      "carneiro": [
-        "Cabra",
-        "Coelho",
-        "Vaca"
-      ],
-
-      "camelo": [
-        "Cachorro",
-        "Elefante",
-        "Urso"
-      ],
-
-      "cobra": [
-        "Jacaré",
-        "Porco",
-        "Burro",
-        "Gato"
-      ],
-
-      "coelho": [
-        "Carneiro",
-        "Águia",
-        "Burro"
-      ],
-
-      "cavalo": [
-        "Burro",
-        "Cabra",
-        "Touro"
-      ],
-
-      "elefante": [
-        "Cabra",
-        "Urso",
-        "Tigre",
-        "Leão",
-        "Burro"
-      ],
-
-      "galo": [
-        "Cachorro",
-        "Avestruz",
-        "Águia",
-        "Pavão",
-        "Peru"
-      ],
-
-      "gato": [
-        "Cachorro",
-        "Leão",
-        "Tigre",
-        "Cobra"
-      ],
-
-      "jacaré": [
-        "Cobra",
-        "Porco",
-        "Borboleta",
-        "Macaco"
-      ],
-
-      "leão": [
-        "Elefante",
-        "Gato",
-        "Tigre",
-        "Urso"
-      ],
-
-      "macaco": [
-        "Cachorro",
-        "Cabra",
-        "Peru",
-        "Jacaré"
-      ],
-
-      "porco": [
-        "Cobra",
-        "Peru",
-        "Jacaré",
-        "Cachorro"
-      ],
-
-      "pavão": [
-        "Avestruz",
-        "Águia",
-        "Galo",
-        "Peru"
-      ],
-
-      "peru": [
-        "Avestruz",
-        "Águia",
-        "Galo",
-        "Pavão",
-        "Veado"
-      ],
-
-      "touro": [
-        "Vaca",
-        "Burro",
-        "Cabra"
-      ],
-
-      "tigre": [
-        "Gato",
-        "Leão",
-        "Cabra"
-      ],
-
-      "urso": [
-        "Leão",
-        "Elefante",
-        "Camelo",
-        "Cabra"
-      ],
-
-      "veado": [
-        "Peru",
-        "Burro",
-        "Cabra"
-      ],
-
-      "vaca": [
-        "Touro",
-        "Avestruz",
-        "Carneiro"
-      ]
+      "avestuz": ["Vaca", "Águia", "Galo", "Pavão", "Peru"],
+      "águia": ["Coelho", "Avestruz", "Galo", "Pavão", "Peru"],
+      "burro": ["Cavalo", "Elefante", "Touro", "Veado", "Coelho", "Cobra"],
+      "borboleta": ["Cabra", "Elefante", "Gato", "Leão", "Cachorro", "Galo"],
+      "cachorro": ["Galo", "Gato", "Camelo", "Macaco", "Porco", "Pavão"],
+      "cabra": ["Carneiro", "Macaco", "Elefante", "Touro", "Tigre", "Urso"],
+      "carneiro": ["Cabra", "Coelho", "Vaca"],
+      "camelo": ["Cachorro", "Elefante", "Urso"],
+      "cobra": ["Jacaré", "Porco", "Burro", "Gato"],
+      "coelho": ["Carneiro", "Águia", "Burro"],
+      "cavalo": ["Burro", "Cabra", "Touro"],
+      "elefante": ["Cabra", "Urso", "Tigre", "Leão", "Burro"],
+      "galo": ["Cachorro", "Avestruz", "Águia", "Pavão", "Peru"],
+      "gato": ["Cachorro", "Leão", "Tigre", "Cobra"],
+      "jacaré": ["Cobra", "Porco", "Borboleta", "Macaco"],
+      "leão": ["Elefante", "Gato", "Tigre", "Urso"],
+      "macaco": ["Cachorro", "Cabra", "Peru", "Jacaré"],
+      "porco": ["Cobra", "Peru", "Jacaré", "Cachorro"],
+      "pavão": ["Avestruz", "Águia", "Galo", "Peru"],
+      "peru": ["Avestruz", "Águia", "Galo", "Pavão", "Veado"],
+      "touro": ["Vaca", "Burro", "Cabra"],
+      "tigre": ["Gato", "Leão", "Cabra"],
+      "urso": ["Leão", "Elefante", "Camelo", "Cabra"],
+      "veado": ["Peru", "Burro", "Cabra"],
+      "vaca": ["Touro", "Avestruz", "Carneiro"]
     };
-
-    /* NORMALIZAR TEXTO */
 
     function normalizarTexto(texto) {
       return texto
@@ -733,62 +514,39 @@
         .trim();
     }
 
-    /* PESQUISA DE ANIMAIS */
-
-    const animalInput =
-      document.getElementById("animalInput");
-
-    const resultados =
-      document.getElementById("resultados");
+    const animalInput = document.getElementById("animalInput");
+    const resultados = document.getElementById("resultados");
 
     animalInput.addEventListener("input", function() {
-
-      const busca =
-        normalizarTexto(this.value);
-
+      const busca = normalizarTexto(this.value);
       resultados.innerHTML = "";
 
       if (!busca) {
         resultados.innerHTML = `
           <div class="sem-resultado">
             Digite um animal para consultar suas opções.
-          </div>
-        `;
-
+          </div>`;
         return;
       }
 
-      const animalEncontrado =
-        Object.keys(animais).find(animal => {
-          return normalizarTexto(animal) === busca;
-        });
+      const animalEncontrado = Object.keys(animais).find(animal =>
+        normalizarTexto(animal) === busca
+      );
 
       if (!animalEncontrado) {
-
-        const sugestoes =
-          Object.keys(animais).filter(animal => {
-            return normalizarTexto(animal)
-              .includes(busca);
-          });
+        const sugestoes = Object.keys(animais).filter(animal =>
+          normalizarTexto(animal).includes(busca)
+        );
 
         if (sugestoes.length > 0) {
-
           resultados.innerHTML = `
-            <div class="resultado-titulo">
-              Você quis dizer:
-            </div>
-          `;
+            <div class="resultado-titulo">Você quis dizer:</div>`;
 
           sugestoes.forEach(animal => {
-
-            const item =
-              document.createElement("span");
-
+            const item = document.createElement("span");
             item.className = "animal-result";
-
             item.textContent =
-              animal.charAt(0).toUpperCase()
-              + animal.slice(1);
+              animal.charAt(0).toUpperCase() + animal.slice(1);
 
             item.onclick = function() {
               animalInput.value = animal;
@@ -802,49 +560,30 @@
         }
 
         resultados.innerHTML = `
-          <div class="sem-resultado">
-            Animal não encontrado.
-          </div>
-        `;
-
+          <div class="sem-resultado">Animal não encontrado.</div>`;
         return;
       }
 
       mostrarResultados(animalEncontrado);
     });
 
-    /* MOSTRAR RESULTADOS */
-
     function mostrarResultados(animal) {
-
       resultados.innerHTML = `
         <div class="resultado-titulo">
-          Opções para ${
-            animal.charAt(0).toUpperCase() + animal.slice(1)
-          }:
-        </div>
-      `;
+          Opções para ${animal.charAt(0).toUpperCase() + animal.slice(1)}:
+        </div>`;
 
       animais[animal].forEach(opcao => {
-
-        const item =
-          document.createElement("span");
-
+        const item = document.createElement("span");
         item.className = "animal-result";
         item.textContent = opcao;
-
         resultados.appendChild(item);
       });
     }
 
-    /* FECHAR FERRAMENTA DE PUXADA */
-
     function fecharPuxada(event) {
       event.stopPropagation();
-
-      document
-        .getElementById("puxadaBox")
-        .style.display = "none";
+      document.getElementById("puxadaBox").style.display = "none";
     }
   </script>
 
