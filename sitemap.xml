@@ -1,5 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-  <loc>https://feiticeiraclub.com/</loc>
-    </url>
-  </urlset>
+    <loc>https://feiticeiraclub.com/</loc>
+  </url>
+  <url>
+    <loc>https://feiticeiraclub.com/lander</loc>
+  </url>
+  <url>
+    <loc>https://feiticeiraclub.com/posts/tem-novidade-chegando-1794586423284.html</loc>
+  </url>
+  <url>
+    <loc>https://feiticeiraclub.com/posts/tem-novidade-chegando-1794570650027.html</loc>
+  </url>
+</urlset>
