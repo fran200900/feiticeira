@@ -1,3 +1,11 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": "1794570650027",
+      "titulo": "Tem novidade chegando!",
+      "texto": "Estamos sempre trazendo novidades. Continue acompanhando a Feiticeira!",
+      "data": "13/11/2026 08:50",
+      "publicadoEm": "2026-11-13T11:50:50.027Z"
+    }
+  ]
 }
