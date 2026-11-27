@@ -1,601 +1,374 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feiticeira VIP - Plataforma Online e Jogos</title>
-  <meta name="description" content="Acesse a Feiticeira VIP e confira informações sobre a plataforma online, jogos, acesso e condições de utilização.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://feiticeiraclub.com/">
-  <link rel="icon" type="image/png" href="feiticeira.png">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100%;
-      overflow-x: hidden;
-      overflow-y: auto;
-      font-family: Arial, sans-serif;
-      color: #222;
-      background: #fff;
-    }
-    .site-frame {
-      width: 100%;
-      height: 100vh;
-      height: 100dvh;
-      border: 0;
-      display: block;
-    }
-    /* CONTEÚDO SEO */
-    .seo-content {
-      width: min(1000px, 92%);
-      margin: 0 auto;
-      padding: 36px 0 48px;
-      line-height: 1.7;
-    }
-    .seo-content h1 {
-      margin: 0 0 16px;
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.2;
-      color: #4d0050;
-    }
-    .seo-content h2 {
-      margin: 28px 0 10px;
-      font-size: clamp(21px, 3vw, 28px);
-      color: #4d0050;
-    }
-    .seo-content p {
-      margin: 0 0 14px;
-      font-size: 16px;
-    }
-    /* BANNER */
-    .banner-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.65);
-      padding: 20px;
-    }
-    .banner {
-      position: relative;
-      width: min(900px, 95vw);
-      max-height: 85vh;
-      max-height: 85dvh;
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.45);
-    }
-    .banner-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 85vh;
-      max-height: 85dvh;
-      object-fit: contain;
-    }
-    .banner-link {
-      position: absolute;
-      inset: 0;
-      z-index: 10001;
-      cursor: pointer;
-    }
-    .banner-close {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 34px;
-      height: 34px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.75);
-      color: #fff;
-      font-size: 24px;
-      line-height: 34px;
-      cursor: pointer;
-      z-index: 10002;
-    }
 
-    /* ===== BOTÕES FLUTUANTES (leves e discretos) ===== */
-    .fab {
-      position: fixed;
-      bottom: 80px;
-      width: 52px;
-      height: 52px;
-      border: 0;
-      border-radius: 50%;
-      color: #fff;
-      font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-      z-index: 9990;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.15s ease;
-    }
-    .fab:active {
-      transform: scale(0.94);
-    }
-    .fab-whatsapp {
-      left: 20px;
-      background: #25D366;
-    }
-    .fab-puxada {
-      right: 20px;
-      background: #111;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-604824394"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    /* ===== PAINEL WHATSAPP (abre só quando clicado) ===== */
-    .whatsapp-box {
-      position: fixed;
-      left: 20px;
-      bottom: 82px;
-      width: 270px;
-      padding: 20px 18px 18px;
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-      z-index: 9991;
-      font-family: Arial, sans-serif;
-      display: none; /* escondido por padrão */
-    }
-    .whatsapp-box.aberto {
-      display: block;
-    }
-    .close-button {
-      position: absolute;
-      top: 6px;
-      right: 8px;
-      width: 26px;
-      height: 26px;
-      border: none;
-      background: transparent;
-      color: #777;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    .whatsapp-title {
-      margin: 4px 0 8px;
-      color: #111;
-      font-size: 18px;
-      font-weight: 700;
-    }
-    .whatsapp-text {
-      margin: 0;
-      color: #555;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    .whatsapp-button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 9px 16px;
-      background: #25D366;
-      color: #fff;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-    }
+  gtag('config', 'AW-604824394');
+</script>
 
-    /* ===== PAINEL PUXADA (abre só quando clicado) ===== */
-    .puxada-box {
-      position: fixed;
-      right: 20px;
-      bottom: 82px;
-      width: 300px;
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.30);
-      z-index: 9991;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-      display: none; /* escondido por padrão */
-    }
-    .puxada-box.aberto {
-      display: block;
-    }
-    .puxada-header {
-      position: relative;
-      padding: 14px 45px 14px 16px;
-      background: #111;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-    }
-    .puxada-close {
-      position: absolute;
-      top: 6px;
-      right: 8px;
-      width: 30px;
-      height: 30px;
-      border: 0;
-      background: transparent;
-      color: #fff;
-      font-size: 22px;
-      cursor: pointer;
-    }
-    .puxada-content {
-      padding: 14px;
-    }
-    .puxada-search {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    .puxada-search input {
-      width: 100%;
-      height: 42px;
-      padding: 0 42px 0 12px;
-      border: 1px solid #ddd;
-      border-radius: 9px;
-      outline: none;
-      font-size: 15px;
-    }
-    .search-icon {
-      position: absolute;
-      right: 12px;
-      color: #555;
-      font-size: 18px;
-      pointer-events: none;
-    }
-    .puxada-resultados {
-      margin-top: 12px;
-      max-height: 220px;
-      overflow-y: auto;
-    }
-    .resultado-titulo {
-      margin-bottom: 8px;
-      color: #222;
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .animal-result {
-      display: inline-block;
-      margin: 3px 2px;
-      padding: 7px 10px;
-      background: #f1f1f1;
-      color: #222;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .animal-result:hover {
-      background: #111;
-      color: #fff;
-    }
-    .sem-resultado {
-      color: #777;
-      font-size: 13px;
-      line-height: 1.5;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Águia Oficial é o melhor site de apostas online do Brasil, oferecendo as melhores cotações do mercado, recargas e saques via PIX automáticos, resultados do Jogo do Bicho, palpites, dicas de apostas e muito mais. Jogue agora com total segurança!">
+    <meta name="keywords" content="aguia oficial online, aguia oficial, aguia oficial apostas, app águia oficial, aguia online">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Águia Oficial">
+    <meta property="og:title" content="Águia Oficial - O Melhor Site de Apostas Online do Brasil">
+    <meta property="og:description" content="Aposte com segurança e facilidade no Águia Oficial. Resultados do Jogo do Bicho, palpites, dicas e muito mais. Recargas e saques via PIX automáticos.">
+    <meta property="og:image" content="/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.aguiaoficialbet.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Águia Oficial - O Melhor Site de Apostas Online do Brasil">
+    <meta name="twitter:description" content="Aposte com segurança e facilidade no Águia Oficial. Resultados do Jogo do Bicho, palpites, dicas e muito mais. Recargas e saques via PIX automáticos.">
+    <meta name="twitter:image" content="/logo.png">
+    <link rel="canonical" href="https://bancaaguiaoficial.com.br/">
+  
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4CAF50">
 
-    @media (max-width: 600px) {
-      .banner-overlay {
-        padding: 10px;
-      }
-      .banner {
-        width: 96vw;
-        max-height: 75vh;
-        max-height: 75dvh;
-      }
-      .banner-image {
-        max-height: 75vh;
-        max-height: 75dvh;
-      }
-      .fab {
-        bottom: 38px;
-        width: 48px;
-        height: 48px;
-      }
-      .fab-whatsapp {
-        left: 14px;
-      }
-      .fab-puxada {
-        right: 14px;
-      }
-      .whatsapp-box {
-        left: 12px;
-        right: 12px;
-        bottom: 74px;
-        width: auto;
-      }
-      .puxada-box {
-        right: 12px;
-        left: 12px;
-        bottom: 94px;
-        width: auto;
-        max-height: 50vh;
-        max-height: 50dvh;
-        overflow-y: auto;
-      }
-      .puxada-resultados {
-        max-height: 160px;
-      }
-    }
-  </style>
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Águia Oficial - O Melhor Site de Apostas Online do Brasil</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Menu Hamburguer */
+        .menu-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .menu-icon i {
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Banner Recuável do WhatsApp e Miniatura */
+        .wa-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+        }
+        .wa-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 15px;
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border: 1px solid #eee;
+            transition: opacity 0.3s ease;
+        }
+        .wa-card.hidden {
+            display: none;
+        }
+        .wa-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .wa-header .fa-whatsapp {
+            color: #25D366;
+            font-size: 24px;
+        }
+        .wa-minimize {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        .wa-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+            line-height: 1.3;
+        }
+        .wa-btn {
+            background-color: #25D366;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+            display: block;
+            transition: background-color 0.2s;
+        }
+        .wa-btn:hover {
+            background-color: #1ebe5d;
+        }
+
+        /* Miniatura do Banner (Ícone de Grupo) */
+        .wa-mini {
+            background-color: #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: 2px solid #25D366;
+        }
+        .wa-mini:hover {
+            transform: scale(1.05);
+        }
+        .wa-mini.hidden {
+            display: none !important;
+        }
+        .wa-mini i {
+            font-size: 22px;
+            color: #25D366;
+        }
+
+        /* Menu Deslizante */
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -50%; /* Inicia fora da tela */
+            width: 50%;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-y: auto; /* Barra de rolagem apenas no menu */
+        }
+        .menu.active {
+            right: 0; /* Mostra o menu */
+        }
+        .menu-item {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .menu-item a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px; /* Links menores */
+            display: block;
+            margin-top: 10px;
+        }
+        .menu-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 15px; /* Bordas arredondadas */
+            cursor: pointer;
+        }
+        .menu-item-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #ddd;
+            border-radius: 15px; /* Bordas arredondadas */
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        /* Overlay para fechar o menu ao clicar fora */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+        .overlay.active {
+            display: block;
+        }
+        /* Ocultar elementos após instalação do PWA */
+        .hidden {
+            display: none;
+        }
+        /* Título das Redes Sociais */
+        .social-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            color: #333;
+        }
+        /* Ícones Grandes para Redes Sociais */
+        .social-icon {
+            font-size: 20px;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        #banner-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #banner img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        #close-banner {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-  <!-- PLATAFORMA -->
-  <iframe
-    class="site-frame"
-    src="https://app.feiticeira.club/pr/2iCVbLKr"
-    title="Plataforma Feiticeira VIP"
-    allow="clipboard-read; clipboard-write; fullscreen"
-    allowfullscreen>
-  </iframe>
+<header>
+    <h1 style="display: none;">Águia Oficial - O Melhor Site de Apostas Online do Brasil</h1>
+</header>
 
-  <!-- TEXTO VISÍVEL PARA VISITANTES E MECANISMOS DE BUSCA -->
-  <main class="seo-content">
-    <h1>Feiticeira VIP: plataforma online e informações sobre jogos</h1>
-    <p>
-      Esta página reúne informações sobre a Feiticeira VIP e oferece acesso à
-      plataforma online. Consulte os recursos disponíveis diretamente na página
-      e confira as regras, condições de uso e informações apresentadas pelo
-      operador antes de utilizar qualquer serviço.
-    </p>
-    <h2>Como acessar a Feiticeira VIP</h2>
-    <p>
-      Para acessar a plataforma Feiticeira VIP, utilize o conteúdo carregado
-      nesta página e leia atentamente as orientações exibidas. Confira se está
-      no endereço correto, consulte os termos e verifique as condições de
-      cadastro e utilização antes de prosseguir.
-    </p>
-    <h2>Feiticeira VIP: dúvidas frequentes</h2>
-    <p>
-      Quem procura por Feiticeira VIP, plataforma Feiticeira ou acesso online
-      deve confirmar as informações diretamente no site e nos canais oficiais
-      disponibilizados pelo operador. Recursos, disponibilidade e regras podem
-      mudar; por isso, confira os detalhes atualizados antes de usar a plataforma.
-    </p>
-    <h2>Jogue com responsabilidade</h2>
-    <p>
-      Serviços de apostas e jogos podem envolver riscos financeiros. A utilização
-      deve respeitar a legislação aplicável, os termos do operador e os limites
-      pessoais. Não utilize dinheiro destinado a despesas essenciais e não
-      considere jogos ou apostas como fonte garantida de renda.
-    </p>
-  </main>
-
-  <!-- BANNER DE ENTRADA -->
-  <div class="banner-overlay" id="bannerOverlay">
-    <div class="banner">
-      <img
-        class="banner-image"
-        src="aguianovo.png"
-        alt="Banner promocional da Banca Águia">
-      <a
-        class="banner-link"
-        href="https://bancaaguiaoficial.com.br/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Acessar Banca Águia">
-      </a>
-      <button
-        type="button"
-        class="banner-close"
-        id="bannerClose"
-        aria-label="Fechar banner">
-        ×
-      </button>
+<div id="banner-container">
+    <div id="banner">
+        <img src="/banner.jpg" alt="Banner de Boas-Vindas">
+        <button id="close-banner">Fechar</button>
     </div>
-  </div>
+</div>
+    <!-- sAeBgEfV -->
+    <iframe 
+        src="https://app.aguiaoficial.vip/pr/sAeBgEfV" 
+        allow="clipboard-read; clipboard-write"
+        title="app.aguiaoficial.com">
+    </iframe>
 
-  <!-- BOTÃO FLUTUANTE WHATSAPP -->
-  <button
-    type="button"
-    class="fab fab-whatsapp"
-    id="btnWhatsapp"
-    aria-label="Abrir grupo de palpites"
-    title="Grupo de palpites">
-    <!-- ícone simples (sem imagem externa) -->
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </button>
-
-  <!-- BOTÃO FLUTUANTE PUXADA -->
-  <button
-    type="button"
-    class="fab fab-puxada"
-    id="btnPuxada"
-    aria-label="Abrir ferramenta de puxada"
-    title="Puxada">
-    PUX
-  </button>
-
-  <!-- PAINEL GRUPO DE PALPITES (escondido) -->
-  <div class="whatsapp-box" id="whatsappBox">
-    <button
-      type="button"
-      class="close-button"
-      id="fecharWhatsapp"
-      aria-label="Fechar">
-      ×
-    </button>
-    <div class="whatsapp-title">Grupo de palpites</div>
-    <p class="whatsapp-text">
-      Entre no nosso grupo do WhatsApp e acompanhe os palpites.
-    </p>
-    <div class="whatsapp-button" id="entrarGrupo">Entrar no grupo</div>
-  </div>
-
-  <!-- PAINEL FERRAMENTA DE PUXADA (escondido) -->
-  <div class="puxada-box" id="puxadaBox">
-    <div class="puxada-header">
-      PUXADA
-      <button
-        type="button"
-        class="puxada-close"
-        id="fecharPuxada"
-        aria-label="Fechar Puxada">
-        ×
-      </button>
-    </div>
-    <div class="puxada-content">
-      <div class="puxada-search">
-        <input
-          type="text"
-          id="animalInput"
-          placeholder="Digite o nome de um animal..."
-          autocomplete="off">
-        <span class="search-icon">🔍</span>
-      </div>
-      <div class="puxada-resultados" id="resultados">
-        <div class="sem-resultado">
-          Digite um animal para consultar suas opções.
+    <!-- Container do Banner Recuável e Miniatura -->
+    <div class="wa-container">
+        <!-- Banner Aberto -->
+        <div class="wa-card" id="wa-card">
+            <div class="wa-header">
+                <i class="fab fa-whatsapp"></i>
+                <button id="wa-minimize" class="wa-minimize" aria-label="Minimizar">&times;</button>
+            </div>
+            <p class="wa-title">Grupo de palpites no WhatsApp</p>
+            <a href="https://chat.whatsapp.com/KRE9RgS3P9XKvLs26yBInb?s=cl&p=a&mlu=4&ilr=4&iam=2" target="_blank" class="wa-btn">Entrar</a>
         </div>
-      </div>
+        
+        <!-- Miniatura (Exibida quando o banner é fechado) -->
+        <div id="wa-mini" class="wa-mini hidden" title="Abrir opções do WhatsApp">
+            <i class="fas fa-users"></i>
+        </div>
     </div>
-  </div>
 
-  <script>
-    /* FECHAR BANNER */
-    document.getElementById("bannerClose").addEventListener("click", function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      document.getElementById("bannerOverlay").style.display = "none";
-    });
+    <script>
+        // Abrir em tela cheia automaticamente
+        document.addEventListener('DOMContentLoaded', () => {
+            const iframe = document.querySelector('iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
 
-    /* ===== WHATSAPP ===== */
-    const whatsappLink = "https://chat.whatsapp.com/CaY60otbPRkEJL0n5Hhnvm";
-    const whatsappBox = document.getElementById("whatsappBox");
-    const btnWhatsapp = document.getElementById("btnWhatsapp");
+        document.addEventListener('DOMContentLoaded', () => {
+            const bannerContainer = document.getElementById('banner-container');
+            const closeBanner = document.getElementById('close-banner');
 
-    btnWhatsapp.addEventListener("click", function() {
-      // fecha a puxada se estiver aberta
-      document.getElementById("puxadaBox").classList.remove("aberto");
-      whatsappBox.classList.toggle("aberto");
-    });
+            // Verifica se é a primeira visita
+            if (!localStorage.getItem('bannerShown')) {
+                setTimeout(() => {
+                    bannerContainer.style.display = 'flex';
+                }, 5000);
 
-    document.getElementById("fecharWhatsapp").addEventListener("click", function(e) {
-      e.stopPropagation();
-      whatsappBox.classList.remove("aberto");
-    });
+                // Marca que o banner já foi exibido
+                localStorage.setItem('bannerShown', 'true');
+            }
 
-    document.getElementById("entrarGrupo").addEventListener("click", function() {
-      window.location.href = whatsappLink;
-    });
+            // Fecha o banner de boas-vindas
+            if (closeBanner) {
+                closeBanner.addEventListener('click', () => {
+                    bannerContainer.style.display = 'none';
+                });
+            }
 
-    /* ===== PUXADA ===== */
-    const puxadaBox = document.getElementById("puxadaBox");
-    const btnPuxada = document.getElementById("btnPuxada");
+            // Lógica do Banner Recuável do WhatsApp e Miniatura
+            const waCard = document.getElementById('wa-card');
+            const waMinimize = document.getElementById('wa-minimize');
+            const waMini = document.getElementById('wa-mini');
 
-    btnPuxada.addEventListener("click", function() {
-      // fecha o whatsapp se estiver aberto
-      whatsappBox.classList.remove("aberto");
-      puxadaBox.classList.toggle("aberto");
-    });
-
-    document.getElementById("fecharPuxada").addEventListener("click", function(e) {
-      e.stopPropagation();
-      puxadaBox.classList.remove("aberto");
-    });
-
-    /* DADOS DA FERRAMENTA */
-    const animais = {
-      "avestuz": ["Vaca", "Águia", "Galo", "Pavão", "Peru"],
-      "águia": ["Coelho", "Avestruz", "Galo", "Pavão", "Peru"],
-      "burro": ["Cavalo", "Elefante", "Touro", "Veado", "Coelho", "Cobra"],
-      "borboleta": ["Cabra", "Elefante", "Gato", "Leão", "Cachorro", "Galo"],
-      "cachorro": ["Galo", "Gato", "Camelo", "Macaco", "Porco", "Pavão"],
-      "cabra": ["Carneiro", "Macaco", "Elefante", "Touro", "Tigre", "Urso"],
-      "carneiro": ["Cabra", "Coelho", "Vaca"],
-      "camelo": ["Cachorro", "Elefante", "Urso"],
-      "cobra": ["Jacaré", "Porco", "Burro", "Gato"],
-      "coelho": ["Carneiro", "Águia", "Burro"],
-      "cavalo": ["Burro", "Cabra", "Touro"],
-      "elefante": ["Cabra", "Urso", "Tigre", "Leão", "Burro"],
-      "galo": ["Cachorro", "Avestruz", "Águia", "Pavão", "Peru"],
-      "gato": ["Cachorro", "Leão", "Tigre", "Cobra"],
-      "jacaré": ["Cobra", "Porco", "Borboleta", "Macaco"],
-      "leão": ["Elefante", "Gato", "Tigre", "Urso"],
-      "macaco": ["Cachorro", "Cabra", "Peru", "Jacaré"],
-      "porco": ["Cobra", "Peru", "Jacaré", "Cachorro"],
-      "pavão": ["Avestruz", "Águia", "Galo", "Peru"],
-      "peru": ["Avestruz", "Águia", "Galo", "Pavão", "Veado"],
-      "touro": ["Vaca", "Burro", "Cabra"],
-      "tigre": ["Gato", "Leão", "Cabra"],
-      "urso": ["Leão", "Elefante", "Camelo", "Cabra"],
-      "veado": ["Peru", "Burro", "Cabra"],
-      "vaca": ["Touro", "Avestruz", "Carneiro"]
-    };
-
-    function normalizarTexto(texto) {
-      return texto
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .trim();
-    }
-
-    const animalInput = document.getElementById("animalInput");
-    const resultados = document.getElementById("resultados");
-
-    animalInput.addEventListener("input", function() {
-      const busca = normalizarTexto(this.value);
-      resultados.innerHTML = "";
-      if (!busca) {
-        resultados.innerHTML = `
-          <div class="sem-resultado">
-            Digite um animal para consultar suas opções.
-          </div>`;
-        return;
-      }
-      const animalEncontrado = Object.keys(animais).find(animal =>
-        normalizarTexto(animal) === busca
-      );
-      if (!animalEncontrado) {
-        const sugestoes = Object.keys(animais).filter(animal =>
-          normalizarTexto(animal).includes(busca)
-        );
-        if (sugestoes.length > 0) {
-          resultados.innerHTML = `
-            <div class="resultado-titulo">Você quis dizer:</div>`;
-          sugestoes.forEach(animal => {
-            const item = document.createElement("span");
-            item.className = "animal-result";
-            item.textContent =
-              animal.charAt(0).toUpperCase() + animal.slice(1);
-            item.onclick = function() {
-              animalInput.value = animal;
-              mostrarResultados(animal);
-            };
-            resultados.appendChild(item);
-          });
-          return;
-        }
-        resultados.innerHTML = `
-          <div class="sem-resultado">Animal não encontrado.</div>`;
-        return;
-      }
-      mostrarResultados(animalEncontrado);
-    });
-
-    function mostrarResultados(animal) {
-      resultados.innerHTML = `
-        <div class="resultado-titulo">
-          Opções para ${animal.charAt(0).toUpperCase() + animal.slice(1)}:
-        </div>`;
-      animais[animal].forEach(opcao => {
-        const item = document.createElement("span");
-        item.className = "animal-result";
-        item.textContent = opcao;
-        resultados.appendChild(item);
-      });
-    }
-  </script>
+            if (waMinimize && waCard && waMini) {
+                // Ao clicar no X, esconde o card grande e mostra a miniatura
+                waMinimize.addEventListener('click', () => {
+                    waCard.classList.add('hidden');
+                    waMini.classList.remove('hidden');
+                });
+                
+                // Ao clicar na miniatura, esconde a miniatura e restaura o card
+                waMini.addEventListener('click', () => {
+                    waMini.classList.add('hidden');
+                    waCard.classList.remove('hidden');
+                });
+            }
+        });
+    </script><script src="sc.js"></script>
 </body>
 </html>
